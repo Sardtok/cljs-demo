@@ -11,7 +11,7 @@
                (fn [index stuff] [:li {:key index} stuff])
                stuff)]
         (associative? stuff)
-        [:dl (map (fn [[key value]] [:<> [:dd key] [:dt value]])
+        [:dl (map (fn [[key value]] [:<> {:key key} [:dd key] [:dt value]])
                   stuff)]
         :else [:p [:strong "What is this stuff? " (str stuff)]]))
 
