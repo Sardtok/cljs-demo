@@ -5,7 +5,8 @@
   "src/test"]
 
  :dependencies
- []
+ [[reagent "1.0.0"]
+  [re-frame "1.2.0"]]
 
  :dev-http {8080 "public"}
  :nrepl {:port 55555}
