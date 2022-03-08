@@ -6,10 +6,14 @@
         [re-frame.core :as re-frame]))
 
 (defn show-stuff [stuff]
-  [:ul
-   (map-indexed
-     (fn [index stuff] [:li {:key index} stuff])
-     stuff)])
+  (cond (sequential? stuff)
+        [:ul (map-indexed
+               (fn [index stuff] [:li {:key index} stuff])
+               stuff)]
+        (associative? stuff)
+        [:dl (map (fn [[key value]] [:<> [:dd key] [:dt value]])
+                  stuff)]
+        :else [:strong "What is this stuff? " (str stuff)]))
 
 (defn root []
   (let [my-stuff (re-frame/subscribe [::subs/my-stuff])
@@ -17,7 +21,8 @@
     [:<>
      [:h1 "Hello World!"]
      [show-stuff @my-stuff]
-     [show-stuff @something-else]]))
+     [show-stuff @something-else]
+     [show-stuff "A string"]]))
 
 (defn ^:dev/after-load init []
       (reagent-dom/render [root]
