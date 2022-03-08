@@ -8,3 +8,7 @@
 (reg-sub
   ::something-else
   (fn [db _] (:something-else db)))
+
+(reg-sub
+  ::bpi
+  (fn [db _] (:bpi db)))
