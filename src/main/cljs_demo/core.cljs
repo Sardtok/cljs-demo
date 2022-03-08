@@ -13,7 +13,7 @@
         (associative? stuff)
         [:dl (map (fn [[key value]] [:<> [:dd key] [:dt value]])
                   stuff)]
-        :else [:strong "What is this stuff? " (str stuff)]))
+        :else [:p [:strong "What is this stuff? " (str stuff)]]))
 
 (defn root []
   (let [my-stuff (re-frame/subscribe [::subs/my-stuff])
@@ -22,7 +22,8 @@
      [:h1 "Hello World!"]
      [show-stuff @my-stuff]
      [show-stuff @something-else]
-     [show-stuff "A string"]]))
+     [show-stuff "A string"]
+     [show-stuff (js/Date.now)]]))
 
 (defn ^:dev/after-load init []
       (reagent-dom/render [root]
