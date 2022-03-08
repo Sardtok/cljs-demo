@@ -7,4 +7,4 @@
   (fn [db _]
     (js/console.log (clj->js db))
     (merge db {:my-stuff [1 2 3]
-               :something-else {:a 1 :b 2 :c 3}})))
+               :something-else {:b "The Boldness" :i "Italianness" :s "X STRIKE X"}})))

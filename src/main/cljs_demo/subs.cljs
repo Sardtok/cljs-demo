@@ -4,3 +4,7 @@
 (reg-sub
   ::my-stuff
   (fn [db _] (:my-stuff db)))
+
+(reg-sub
+  ::something-else
+  (fn [db _] (:something-else db)))
