@@ -15,7 +15,7 @@
 
  :builds
  {:frontend {:target :browser
-             :modules {:main {:init-fn cljs-demo.core/init}}
+             :modules {:main {:init-fn cljs-demo.core/run}}
              :devtools {:preloads [day8.re-frame-10x.preload]}
              :dev {:compiler-options
                    {:closure-defines
